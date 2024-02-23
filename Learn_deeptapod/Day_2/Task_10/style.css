@@ -1,0 +1,7 @@
+.list-item {
+    color: black;
+  }
+    .list-item:hover {
+    color: rgb(82, 162, 219); 
+  }
+  
