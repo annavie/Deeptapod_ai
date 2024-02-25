@@ -1,0 +1,20 @@
+.tab-container {
+    display: flex;
+  }
+  .tab-btn {
+    padding: 10px 20px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  .tab-btn.active {
+    background-color: #ccc;
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  
