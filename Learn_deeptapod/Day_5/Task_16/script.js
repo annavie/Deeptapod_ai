@@ -21,7 +21,7 @@ const employees = [
   function generateTable() {
     const tbody = document.querySelector("#employeeTable tbody");
 
-    employees.forEach(employee => {
+    employees.forEach((employee) => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${employee.id}</td>

@@ -1,20 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Auto-Save</title>
+  <title>Auto-Save Form</title>
 </head>
 <body>
-    <form id="myForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>     
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
-        <button type="button" id="submitButton">Save Data to JSON File</button>
-        <script src="script.js"></script>
+  <form id="myForm">
+    <label for="name" >Name:</label><br>
+    <input type="text" id="name" name="input_name" autocomplete="name"><br>
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email" autocomplete="email"><br><br>
+  </form>
 
-    </form>
+  <script>
+    const form = document.getElementById('myForm');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
 
+    [name, email].forEach(input => {
+      input.addEventListener('input', (event) => {
+        localStorage.setItem(event.target.name, event.target.value);
+      });
+    });
+
+    window.addEventListener('load', () => {
+      const inputs = form.getElementsByTagName('input');
+      for (let i = 0; i < inputs.length; i++) {
+        if (localStorage.getItem(inputs[i].name)) {
+          inputs[i].value = localStorage.getItem(inputs[i].name);
+        }
+      }
+    });
+  </script>
 </body>
 </html>

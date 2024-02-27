@@ -1,5 +1,5 @@
 
-const comments = [
+const objects = [
   {
     id: 1,
     text: "This is the first comment",
@@ -54,4 +54,5 @@ function displayComments(commentsArray, container, level) {
 }
 
 const commentsContainer = document.getElementById('commentsContainer');
-displayComments(comments, commentsContainer, 0);
+
+displayComments(objects, commentsContainer, 0);
