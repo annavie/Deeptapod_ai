@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    max-width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    max-width:  400px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.password-change {
+    max-width: 200px;
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 200px;
+}
+
+.password-change h2 {
+    margin-bottom: 20px;
+}
+
+.password-change form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.password-change form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.password-change form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-change form button {
+    background-color: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 12px 24px; 
+    border-radius: 30px; 
+    cursor: pointer;
+    margin-top: 20px; 
+    font-family: Arial, sans-serif; 
+    font-size: 16px; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.password-change form button:hover {
+    background-color: #000000; 
+    color: #ffffff; 
+}

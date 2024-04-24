@@ -1,0 +1,24 @@
+.form-builder {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.controls {
+    margin-bottom: 10px;
+}
+
+.work-area {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+
+.remove-field {
+    margin-left: 5px;
+}

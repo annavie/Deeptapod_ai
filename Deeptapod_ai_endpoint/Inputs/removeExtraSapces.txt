@@ -1,0 +1,1 @@
+ This   text has      lot of extra      spaces
