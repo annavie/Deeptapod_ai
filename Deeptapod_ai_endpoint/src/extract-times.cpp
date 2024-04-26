@@ -25,7 +25,7 @@ std::string cleanTime(const std::string& time) {
 }
 std::vector<std::string> extractTimes(const std::string& text) {
     std::vector<std::string> times;
-std::regex timeRegex(R"(\b\d{1,2}[:;][0-5]\d\s?(?:AM|PM)\b)", std::regex_constants::icase);
+    std::regex timeRegex(R"(\b\d{1,2}[:;][0-5]\d\s?(?:AM|PM)\b)", std::regex_constants::icase);
     std::sregex_iterator iter(text.begin(), text.end(), timeRegex);
     std::sregex_iterator end;
 

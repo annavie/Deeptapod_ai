@@ -1,61 +1,39 @@
 #include <iostream>
-#include <fstream>
 #include <string>
-#include <sstream>
-#include <unordered_map>
-#include <algorithm>
+#include <map>
 #include <vector>
+#include <algorithm>
 
-void writeToTextFile(const std::string& filename, const std::vector<std::pair<std::string, int>>& sortedWords) {
-    std::ofstream outputFile(filename);
-    if (!outputFile.is_open()) {
-        std::cerr << "Error: Unable to open output file." << std::endl;
-        return;
-    }
-    for (const auto& pair : sortedWords) {
-        outputFile << pair.first << ": " << pair.second << std::endl;
-    }
-    outputFile.close();
-
-    std::cout << "Output written to " << filename << std::endl;
-}
-
-void readTextFromFile(const std::string& filename, std::unordered_map<std::string, int>& wordCount) {
-    std::ifstream inputFile(filename);
-    if (!inputFile.is_open()) {
-        std::cerr << "Error: Unable to open input file: " << filename << std::endl;
-        return;
-    }
+std::vector<std::pair<std::string, int>> find_most_common_words_first(const std::string& text) {
+    std::map<std::string, int> word_count;
     std::string word;
-    while (inputFile >> word) {
-        wordCount[word]++;
+    for (size_t i = 0; i < text.size(); ++i) {
+        if (std::isalnum(text[i])) {
+            word += std::tolower(text[i]);
+        } else if (!word.empty()) {
+            word_count[word]++;
+            word.clear();
+        }
     }
-    inputFile.close();
-}
-
-bool sortByFrequency(const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
-    return a.second > b.second;
-}
-
-void printMostCommonWords(const std::vector<std::pair<std::string, int>>& sortedWords) {
-    std::cout << "Most common words:\n";
-    for (const auto& pair : sortedWords) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
+    if (!word.empty()) {
+        word_count[word]++;
     }
-}
+    std::vector<std::pair<std::string, int>> sorted_word_count(word_count.begin(), word_count.end());
+    std::sort(sorted_word_count.begin(), sorted_word_count.end(),
+              [](const auto& a, const auto& b) { return a.second > b.second; });
 
-void findCommonWords(const std::string& filename) {
-    std::unordered_map<std::string, int> wordCount;
-    readTextFromFile(filename, wordCount);
-
-    std::vector<std::pair<std::string, int>> sortedWords(wordCount.begin(), wordCount.end());
-    std::sort(sortedWords.begin(), sortedWords.end(), sortByFrequency);
-    
-    printMostCommonWords(sortedWords);
+    return sorted_word_count;
 }
 
 int main() {
-    std::string filename = "../Inputs/find-common-words.txt";
-    findCommonWords(filename);
+    std::string text = "This is a sample text. It contains some words, and some of them repeat. Words like repeat, sample, text, and some others.";
+
+    std::vector<std::pair<std::string, int>> word_count_pairs = find_most_common_words_first(text);
+
+    std::cout << "Words with most common ones first:" << std::endl;
+    for (const auto& pair : word_count_pairs) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
     return 0;
 }
