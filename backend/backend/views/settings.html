@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeptapod.ai</title>
+    <link rel="stylesheet" href="css/settings.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="img/logo.png" alt="logo">
+                </span>
+                <div class="text header-text">
+                    <a id="dashboard-link" href="dashboard.html">My Dashboard</a>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i> 
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li id="nav-link1" class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-edit icon'></i>
+                            <span class="text nav-text">Edit Profile</span>
+                        </a>
+                    </li>
+                    <li id="nav-link2" class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-lock icon'></i>
+                            <span class="text nav-text">Reset Password</span>
+                        </a>
+                    </li>
+<!--                    <li id="nav-link3" class="nav-link">-->
+<!--                        <a href="#">-->
+<!--                            <i class='bx bx-wallet icon'></i>-->
+<!--                            <span class="text nav-text">Change Payment Method</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="edit-profile-section" id="edit-profile-section" style="display: block;">
+            <h2>Edit Profile</h2>
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="profile-photo">Profile Photo</label>
+                    <input type="file" id="profile-photo" name="profile-photo" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" id="role" name="role">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <button type="submit" class="edit-btn">Edit</button>
+            </form>
+        </div>
+    </main>
+    <section id="password-change" class="password-change">
+        <h2>Change Password</h2>
+        <form id="password-change-form">
+            <label for="current-password">Current Password</label>
+            <input type="password" id="current-password" name="current-password" required>
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" name="new-password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Password must contain at least 8 characters, including one letter and one number">
+            <label for="confirm-password">Confirm New Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Password must contain at least 8 characters, including one letter and one number">
+            <button type="submit">Change Password</button>
+        </form>
+    </section>
+    <script src="js/settings.js"></script>
+</body>
+</html>
