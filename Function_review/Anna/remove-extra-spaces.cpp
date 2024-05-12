@@ -3,8 +3,6 @@
 #include <string>
 #include <sstream>
 
-
-
 void removeExtraSpaces(std::string& text) {
     std::istringstream iss(text);
     std::ostringstream oss;
