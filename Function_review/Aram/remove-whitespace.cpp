@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-void deleteWhitespace(std::string& text) {
+void removeWhitespace(std::string& text) {
     int writeIndex = 0;
 
     for (char c : text) {
@@ -16,7 +16,7 @@ void deleteWhitespace(std::string& text) {
 // int main() {
 //     std::string text = "   This   is    a    test   .   ";
 //     std::cout << "Before: " << text << std::endl;
-//     deleteWhitespace(text);
+//     removeWhitespace(text);
 //     std::cout << "After: " << text << std::endl;
 //     return 0;
 // }
